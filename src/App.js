@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
+import ReactGA from 'react-ga4';
+import Contador from './Contador'; // Asegúrate de que la ruta sea correcta
 
-function Contador() {
-  const [contador, setContador] = useState(0);
+const TRACKING_ID = "G-NEXV1X49S3"; // Reemplaza con tu ID de medición
 
-  const handleClick = () => {
-    const nuevoContador = contador + 1;
-    setContador(nuevoContador);
-    console.log('Clic número:', nuevoContador);
-
-    if (nuevoContador === 4) {
-      console.log('¡Cantidad máxima de 4 clics alcanzada!');
-    }
-  };
+function App() {
+  ReactGA.initialize(TRACKING_ID);
 
   return (
     <div>
-      <h1>Total de clics: {contador}</h1>
-      <button onClick={handleClick}>Clic aquí</button>
+      <Contador />
     </div>
   );
 }
 
-export default Contador;
+export default App;
